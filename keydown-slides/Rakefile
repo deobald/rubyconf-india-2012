@@ -1,0 +1,6 @@
+
+desc "Generate keydown slides"
+task :generate do
+  #Bundler.with_clean_env do
+  sh "keydown slides slides.md"
+end
