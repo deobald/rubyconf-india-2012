@@ -16,7 +16,15 @@
 
 !SLIDE
 
-!(images/not-a-cowboy.jpg)
+![](images/gull-lake-map.gif)
+
+!SLIDE
+
+![](images/gull-lake-road.png)
+
+!SLIDE
+
+![](images/not-a-cowboy.jpg)
 
 !SLIDE
 
