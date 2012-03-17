@@ -16,6 +16,10 @@
 
 !SLIDE
 
+!(images/not-a-cowboy.jpg) 
+
+!SLIDE
+
 # Some sample code
 
 ``` ruby
