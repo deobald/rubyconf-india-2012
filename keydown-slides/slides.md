@@ -2,9 +2,9 @@
 
 !SLIDE
 
-# A Title Slide
+# clojure is my favourite ruby
 
-## me@example.com
+## steven@c42.in
 
 !SLIDE
 
@@ -15,6 +15,10 @@ def method
   puts "Hello, World"
 end
 ```
+
+@@@ clojure
+    (defn explode [zig] (.close zig))
+@@@
 
 !NOTES
 

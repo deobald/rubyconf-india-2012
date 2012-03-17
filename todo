@@ -40,6 +40,7 @@
 - rails console
 - repl
 - overtone
+- get everyone to install lein? lein-swank?
 
 = we like things that feel good =
 
@@ -57,6 +58,7 @@
 - homoiconicity
 
 - data structures as libs (declarative code, hiccup, vs. rails macros)
+  - avoiding ESC
 - homoiconicity
 - libs as language features (core.match demo)
 - homoiconicity
