@@ -1,6 +1,8 @@
 require 'fssm'
 include Rake::DSL
 
+task :default => [:auto]
+
 desc "Auto-generate keydown slides"
 task :auto do
   auto
@@ -12,6 +14,7 @@ task :generate do
 end
 
 def auto
+  puts "=== waiting for file changes... ==="
   FSSM.monitor('slides', in_file) do
     update {|base, relative| auto_generate }
     delete {|base, relative| auto_generate }
@@ -26,9 +29,8 @@ def auto_generate
 end
 
 def generate
-  sh "keydown slides '#{input}'"
+  sh "cd slides && keydown slides '#{in_file}'"
   fix_codemirror
-  fix_css
 end
 
 def fix_codemirror
@@ -38,11 +40,6 @@ def fix_codemirror
   all.gsub!(cm, "")
   all.gsub!(header, "#{header}\n#{cm}") 
   File.open(output, "w") { |f| f.write(all) }
-end
-
-def fix_css
-  sh "rm -rf #{slides_dir}/css"
-  sh "mv css #{slides_dir}/css"
 end
 
 def slides_dir ; "slides" end

@@ -1,4 +1,4 @@
-# keydown-slides
+# slides
 
 !SLIDE
 
@@ -12,11 +12,11 @@
 
 !SLIDE
 
-!(images/cowboy-shirt.jpg)
+![](images/cowboy-shirt.jpg)
 
 !SLIDE
 
-!(images/not-a-cowboy.jpg) 
+!(images/not-a-cowboy.jpg)
 
 !SLIDE
 
