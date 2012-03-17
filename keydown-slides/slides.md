@@ -8,6 +8,14 @@
 
 !SLIDE
 
+# who am I?
+
+!SLIDE
+
+!(images/cowboy-shirt.jpg)
+
+!SLIDE
+
 # Some sample code
 
 ``` ruby

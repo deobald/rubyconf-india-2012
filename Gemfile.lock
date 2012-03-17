@@ -24,4 +24,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fssm
   keydown
