@@ -10,3 +10,8 @@
 /*.deck-status {*/
     /*display: none;*/
 /*}*/
+
+.dark {
+    background-color: black;
+    border: 5px;
+}
