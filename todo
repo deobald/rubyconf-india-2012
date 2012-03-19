@@ -34,6 +34,9 @@
   - wrapping Java's java.util.concurrency (cgrand's example)
   - immutability is great for healthy teeth
 
+* 5:00pm
++ 5:30pm
+
 = curiosity is fun =
 
 - rails users in the crowd?
@@ -42,6 +45,8 @@
 - overtone
 - get everyone to install lein? lein-swank?
 
+* 6:00pm
+
 = we like things that feel good =
 
 - ruby is like this the first time
@@ -49,6 +54,8 @@
 - _why quote about taste vs. creating
   - what about taste in creation?
   - UIs (2 examples for comparison?)
+
+* 6:00pm
 
 = homoiconicity =
 
@@ -72,6 +79,8 @@
 - ruby's grammar graph, ruby's textual layout (java's)
 - vi for ruby, emacs for clojure. why? [gaz]
 
+* 7:00pm
+
 = what about my sweet, sweet objects? =
 
 - making your own object model
@@ -87,6 +96,7 @@
   - type-based dispatch (polymorphism, OOP, case/if-statements)
   - a place to put things
 
+* 8:00pm
 
 = current state of the world =
 

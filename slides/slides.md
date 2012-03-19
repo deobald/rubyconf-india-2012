@@ -1,5 +1,5 @@
 # slides
-
+ 
 !SLIDE
 
 # clojure is my favourite ruby
@@ -62,12 +62,16 @@ here are some notes
 !SLIDE
 
 1. baseline
-2. optional intro
-3. history
+2. history
+3. optional intro
 4. curiosity
 5. good feelings
 6. homoiconicity
 7. state of the world
+
+!SLIDE
+
+# BASELINE
 
 !SLIDE
 
@@ -97,7 +101,7 @@ here are some notes
 
 !SLIDE
 
-# intro
+# INTRO
 
 !SLIDE
 
@@ -106,6 +110,10 @@ here are some notes
 @@@
 
 !SLIDE
+
+@@@ clojure
+(stretch image 128)
+@@@
 
 # function call
 
@@ -117,6 +125,11 @@ here are some notes
 @@@
 
 !SLIDE
+
+@@@ clojure
+(when-not (stretched? image)
+  (stretch image 128))
+@@@
 
 # macro call
 
@@ -146,6 +159,10 @@ here are some notes
 
 !SLIDE
 
+@@@ clojure
+[one two three four]
+@@@
+
 # vector
 
 !SLIDE
@@ -158,7 +175,19 @@ here are some notes
 
 !SLIDE
 
+@@@ clojure
+{ :name  "Steven Deobald"
+  :has   "Wood"
+  :needs "Gold" }
+@@@
+
 # map
+
+!SLIDE
+
+@@@ clojure
+(map inc [3 7 14 15 22 41])
+@@@
 
 !SLIDE
 
@@ -168,11 +197,37 @@ here are some notes
 
 !SLIDE
 
+@@@ clojure
+'(one two three four seven)
+@@@
+
 # list
 
 !SLIDE
 
-# history
+@@@ clojure
+['one' 'two' 'three' 'four' 'seven']
+@@@
+
+!SLIDE
+
+@@@ clojure
+['one' 'two' 'three' 'four' 'seven']
+@@@
+
+# garbage!
+
+!SLIDE
+
+@@@ clojure
+["one" "two" "three" "four" "seven"]
+@@@
+
+# strings are always double-quotes
+
+!SLIDE
+
+# HISTORY
 
 !SLIDE
 
@@ -192,25 +247,19 @@ here are some notes
 
 !SLIDE
 
-![](images/seymore-cray-1604.jpg)
+# AI
 
-!SLIDE
-
-# AI: code written in its own data structures
+### code written in its own data structures
 
 !SLIDE
 
 # 1966 - 1990
 
-!SLIDE
-
-# "AI winter"
+### "AI winter"
 
 !SLIDE
 
 # 1970
-
-!SLIDE
 
 ![](images/garbage-collection.jpg)
 
@@ -248,7 +297,7 @@ here are some notes
 
 !SLIDE
 
-# so, why another lisp? why now?
+# why another lisp? why now?
 
 !SLIDE
 
@@ -264,11 +313,11 @@ here are some notes
 
 !SLIDE
 
-# so, why clojure specifically?
+# why clojure, specifically?
 
 !SLIDE
 
-# concurrency is the new memory management
+# "concurrency is the new memory management"
 
 !SLIDE
 
@@ -280,15 +329,15 @@ here are some notes
 
 !SLIDE
 
-![](images/facebook-timeline.jpg)
-
-!SLIDE
-
 ![](images/octocat.png)
 
 !SLIDE
 
 # rake db:migrate
+
+!SLIDE
+
+![](images/facebook-timeline.jpg)
 
 !SLIDE
 
@@ -300,10 +349,14 @@ here are some notes
 
 @@@ clojure
 (def person (atom {:name "Steven"}))
+
 (defn become-ralph [p]
   (assoc p :name "Ralph"))
+
 (swap! person become-ralph)
 @@@
+
+![](images/box.jpg)
 
 !SLIDE
 
@@ -311,10 +364,56 @@ here are some notes
 
 @@@ clojure
 (def person (ref {:name "Steven"}))
+
 (defn become-ralph [p]
   (assoc p :name "Ralph"))
-(dosync
+
+(dosync ; start a transaction
   (alter person become-ralph))
 @@@
 
 ![](images/database.jpg)
+
+!SLIDE
+
+# agent
+
+@@@ clojure
+(def person (agent {:name "Steven"}))
+
+(defn become-ralph [p]
+  (assoc p :name "Ralph"))
+
+(send person become-ralph)
+@@@
+
+![](images/agent.png)
+
+!SLIDE
+
+# java.util.concurrent
+
+@@@ clojure
+(defn pipe []
+  (let [q (java.util.concurrent.LinkedBlockingQueue.)
+        EOQ (Object.)
+        NIL (Object.)
+        s (fn s [] (lazy-seq (let [x (.take q)]
+                               (when-not (= EOQ x)
+                                 (cons (when-not (= NIL x) x) (s))))))]
+    [(s) (fn ([] (.put q EOQ)) ([x] (.put q (or x NIL))))]))
+@@@
+
+![](images/queue.jpg)
+
+!SLIDE
+
+# also, immutability is good for teeth.
+
+!SLIDE
+
+# did irb change the way you program?
+
+!SLIDE
+
+

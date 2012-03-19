@@ -5,3 +5,4 @@ bin
 slides.html
 lib/
 .lein-deps-sum
+.sass-cache/
