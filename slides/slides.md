@@ -40,10 +40,10 @@ here are some notes
 
 ![](images/drw.png)
 
-1. t-logger
-2. market data republisher
-3. web app + service
-4. _trade capture and positions management_
+1. t-logger (12 lines of clojure)
+2. market data republisher (300 lines of clojure)
+3. web app + service (2000 lines of clojure)
+4. _trade capture and positions management_ (5000 lines of ruby)
 
 !SLIDE
 
@@ -53,13 +53,13 @@ here are some notes
 
 ![](images/rubymonk-logo.png)
 
-}}} images/weave.jpg
-
 !SLIDE
 
 # (clojuremonk.com is coming)
 
 !SLIDE
+
+# TODO: revisit
 
 1. baseline
 2. history
@@ -161,6 +161,7 @@ here are some notes
 
 @@@ clojure
 [one two three four]
+[one, two, three, four]
 @@@
 
 # vector
@@ -201,7 +202,7 @@ here are some notes
 '(one two three four seven)
 @@@
 
-# list
+# seq (list)
 
 !SLIDE
 
@@ -216,6 +217,10 @@ here are some notes
 @@@
 
 # garbage!
+
+!SLIDE
+
+    => [one' two' three' four' seven']
 
 !SLIDE
 
@@ -412,8 +417,38 @@ here are some notes
 
 !SLIDE
 
-# did irb change the way you program?
+# CURIOSITY IS FUN
 
 !SLIDE
 
+# did `irb` change the way you program? (hands)
+
+!SLIDE
+
+# how about `rails console`?
+
+!SLIDE
+
+# leiningen
+
+@@@
+mkdir ~/bin
+cd ~/bin
+wget http://is.gd/leiningen
+mv leiningen lein
+chmod +x lein
+...
+lein new playproject
+lein repl
+@@@
+
+!SLIDE
+
+# FUNCTIONAL PROGRAMMING
+
+!SLIDE
+
+@@@ ruby
+["beer", "doughnuts", "coffee", "hockey"].map(&upcase)
+@@@
 
