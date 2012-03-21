@@ -746,7 +746,7 @@ SandBox.new.abc(1,2,3) {|*args| p args}
 
 !SLIDE
 
-### lambda? block? Proc? Method? Oh my!
+### lambda? def? block? Proc? Method? Oh my!
 
 !SLIDE
 
@@ -781,7 +781,7 @@ SandBox.new.abc(1,2,3) {|*args| p args}
 @@@ clojure
 (def project {:name "Zig" :path "/home/steven/code/zig"})
 
-(.endsWith (str (first (.listFiles (io/file (:path project))))) ".jpg")
+(.endsWith (str (first (.listFiles (clojure.java.io/file (:path project))))) ".jpg")
 
 (-> project :path clojure.java.io/file .listFiles first str (.endsWith ".jpg"))
 @@@
@@ -856,7 +856,7 @@ SandBox.new.abc(1,2,3) {|*args| p args}
      [_     _     true ] (kill-a-thread)))
 @@@
 
-    => 4
+    => ; kills a thread
 
 !SLIDE
 
@@ -993,15 +993,15 @@ xm.html {                        # <html>
 @@@
 
 @@@ clojure
-(html                            # <html>                     
-  [:head                         #   <head>                   
-    [:title "History"]]          #     <title>History</title> 
-                                 #   </head>
-  [:body                         #   <body>
-    [:h1 "Header"]               #     <h1>Header</h1>
-    [:p "paragraph"]])           #     <p>paragraph</p>
-                                 #   </body>
-                                 # </html>
+(html                            ; <html>                     
+  [:head                         ;   <head>                   
+    [:title "History"]]          ;     <title>History</title> 
+                                 ;   </head>
+  [:body                         ;   <body>
+    [:h1 "Header"]               ;     <h1>Header</h1>
+    [:p "paragraph"]])           ;     <p>paragraph</p>
+                                 ;   </body>
+                                 ; </html>
 @@@                                    
 
 !SLIDE

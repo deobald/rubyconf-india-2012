@@ -1,0 +1,8 @@
+
+- slides
+- terminal
+- emacs
+  - cd ~/code/rubyconf
+  - open demo/core.clj
+  - open mailbox.rb
+  - clojure-jack-in
