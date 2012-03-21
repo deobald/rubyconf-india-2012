@@ -448,6 +448,10 @@ lein repl
 
 !SLIDE
 
+# higher-order functions
+
+!SLIDE
+
 @@@ ruby
 ["beer", "doughnuts", "coffee", "hockey"].map do |cliche|
   cliche.upcase
@@ -476,6 +480,8 @@ harper = Canadian.new
 end
 @@@
 
+    => ["beer, eh?", "doughnuts, eh?", "coffee, eh?", "hockey, eh?"]
+
 !SLIDE
 
 @@@ clojure
@@ -494,6 +500,134 @@ end
 (map say-as-harper ["beer", "doughnuts", "coffee", "hockey"])
 @@@
 
+    => ("beer, eh?" "doughnuts, eh?" "coffee, eh?" "hockey, eh?")
+
+!SLIDE
+
+# the spectrum of functional-ness
+
+!SLIDE
+
+@@@ ruby
+def tax_for(price)
+  general_sales_tax = calculate_gst(price)
+  provincial_sales_tax = calculate_pst(price)
+  @tax = general_sales_tax + provincial_sales_tax
+end
+@@@
+
+@@@ clojure
+(defn tax-for [price]
+  (let [general-sales-tax (calculate-gst price)
+        provincial-sales-tax (calculate-pst price)]
+    (+ general-sales-tax provincial-sales-tax)))
+@@@
+
+### ...and then there's haskell.
+
+!SLIDE
+
+![](images/japan-flag.jpg)
+
+!SLIDE
+
+![](images/matz.jpg)
+
+!SLIDE
+
+![](images/lego-sushi.jpg)
+
+!SLIDE
+
+![](images/kirby.png)
+
+!SLIDE
+
+![](images/ruby-logo.png)
+
+!SLIDE
+
+@@@ ruby
+def tax_for(price)
+  # potential mutation
+  general_sales_tax = calculate_gst(price)
+  # potential mutation
+  provincial_sales_tax = calculate_pst(price)
+  # definite mutation
+  @tax = general_sales_tax + provincial_sales_tax
+end
+@@@
+
+!SLIDE
+
+![](images/sarah-palin.jpg)
+
+!SLIDE
+
+![](images/rich-hickey.jpg)
+
+!SLIDE
+
+![](images/science.gif)
+
+!SLIDE
+
+![](images/seneca.jpg)
+
+!SLIDE
+
+![](images/clojure-logo.png)
+
+!SLIDE
+
+@@@ clojure
+(defn tax-for [price]
+  ; bindings, not mutation
+  (let [general-sales-tax (calculate-gst price)
+        provincial-sales-tax (calculate-pst price)]
+    ; single return point means every function's
+    ; purpose is to return a value.
+    (+ general-sales-tax provincial-sales-tax)))
+@@@
+
+!SLIDE
+
+# FEELING GOOD
+
+!SLIDE
+
+![](images/design-patterns-in-ruby.jpg)
+
+!SLIDE
+
+![](images/poeaa.jpg)
+
+!SLIDE
+
+![](images/gof.jpg)
+
+!SLIDE
+
+![](images/patterns-of-software.jpg)
+
+!SLIDE
+
+![](images/a-pattern-language.jpg)
+
+!SLIDE
+
+![](images/the-timeless-way-of-building.jpg)
+
+### TODO: quote about "feeling"
+
+!SLIDE
+
+# Quality Without a Name
+
+!SLIDE
+
+# Je ne c'est quoi
+
 !SLIDE
 
 - curiosity is joy | repl is joy
@@ -507,5 +641,7 @@ end
 - navigating disappointment (eliminating disappointment)
 - the unfolding of language
 - church numerals?
+
+- EventMachine vs. Agents demo
 
 - Date/Time vs. joda (clj-time)
