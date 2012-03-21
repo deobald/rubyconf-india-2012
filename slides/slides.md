@@ -59,15 +59,14 @@ here are some notes
 
 !SLIDE
 
-# TODO: revisit
-
 1. baseline
-2. history
-3. optional intro
-4. curiosity
-5. good feelings
-6. homoiconicity
-7. state of the world
+2. intro
+3. history
+4. curiosity is joy
+6. functional programming
+7. feeling good
+8. metaprogramming
+9. messaging concurrency
 
 !SLIDE
 
@@ -94,10 +93,6 @@ here are some notes
 @@@ clojure
 (= closure object)
 @@@
-
-!SLIDE
-
-# (we'll come back to this)
 
 !SLIDE
 
@@ -463,7 +458,7 @@ keyword
 
 !SLIDE
 
-# CURIOSITY IS FUN
+# CURIOSITY IS JOY
 
 !SLIDE
 
@@ -476,6 +471,8 @@ keyword
 !SLIDE
 
 # leiningen
+
+### if curiosity is joy, a repl is joy. let's get one.
 
 @@@
 mkdir ~/bin
@@ -717,7 +714,7 @@ end
 
 !SLIDE
 
-# META-PROGRAMMING
+# METAPROGRAMMING
 
 !SLIDE
 
@@ -964,8 +961,8 @@ case
 (defn wrap-teapot-gets [handler]
   (fn [request]
     (if (= :get (:request-method req))
-      (app (assoc request :status 418))
-      (app request))))
+      (handler (assoc request :status 418))
+      (handler request))))
 
 (def app
   (-> #'handler
@@ -1009,7 +1006,24 @@ xm.html {                        # <html>
 
 !SLIDE
 
-# BIBLIOGRAPHY
+# MESSAGING CONCURRENCY
+
+!SLIDE
+
+### mailbox? eventmachine?
+
+!SLIDE
+
+# ( demo/core.clj )
+
+!SLIDE
+
+### NOW WHAT?
+
+- labrepl: https://github.com/relevance/labrepl
+- joy of clojure: http://joyofclojure.com/the-book/
+
+### BIBLIOGRAPHY
 
 - http://dreamsongs.net/Files/PatternsOfSoftware.pdf
 - http://www.unfoldingoflanguage.com/
