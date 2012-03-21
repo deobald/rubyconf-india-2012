@@ -135,11 +135,8 @@ here are some notes
 !SLIDE
 
 @@@ clojure
-(defmacro when-not
-  "Evaluates test. If logical false, evaluates body in an implicit do."
-  {:added "1.0"}
-  [test & body]
-    (list 'if test nil (cons 'do body)))
+(defmacro when-not [test & body]
+  (list 'if test nil (cons 'do body)))
 @@@
 
 !SLIDE
@@ -993,8 +990,8 @@ xm.html {                        # <html>
 @@@
 
 @@@ clojure
-(html                            ; <html>                     
-  [:head                         ;   <head>                   
+(html                            ; <html>
+  [:head                         ;   <head>
     [:title "History"]]          ;     <title>History</title> 
                                  ;   </head>
   [:body                         ;   <body>
@@ -1002,7 +999,7 @@ xm.html {                        # <html>
     [:p "paragraph"]])           ;     <p>paragraph</p>
                                  ;   </body>
                                  ; </html>
-@@@                                    
+@@@
 
 !SLIDE
 
@@ -1027,21 +1024,3 @@ xm.html {                        # <html>
 
 - http://dreamsongs.net/Files/PatternsOfSoftware.pdf
 - http://www.unfoldingoflanguage.com/
-
-!SLIDE
-
-- curiosity is joy | repl is joy
-- emacs is a living repl | overtone
-
-- learn clojure in 2 minutes?
-- kernel
-
-- q.w.a.n. / je ne c'est quoi
-
-- navigating disappointment (eliminating disappointment)
-- the unfolding of language
-- church numerals?
-
-- EventMachine vs. Agents demo
-
-- Date/Time vs. joda (clj-time)
