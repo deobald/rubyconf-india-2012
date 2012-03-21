@@ -748,6 +748,118 @@ SandBox.new.abc(1,2,3) {|*args| p args}
 
 !SLIDE
 
+### (homoiconicity)
+
+!SLIDE
+
+# you can't get there from here.
+
+!SLIDE
+
+### data -> functions -> macros -> compilers
+
+!SLIDE
+
+# COMPILERS
+
+@@@ clojure
+(defn emit-fn-method
+  [{:keys [gthis name variadic params statements ret env recurs max-fixed-arity]}]
+  (emit-wrap env
+             (print (str "(function " name "(" (comma-sep params) "){\n"))
+             (when gthis
+               (println (str "var " gthis " = this;")))
+             (when recurs (print "while(true){\n"))
+             (emit-block :return statements ret)
+             (when recurs (print "break;\n}\n"))
+             (print "})")))
+@@@
+
+!SLIDE
+
+# MACROS
+
+@@@ clojure
+(let [x true
+      y true
+      z true]
+  (match [x y z]
+     [_     false true ] 1
+     [false true  _    ] 2
+     [_     _     false] 3
+     [_     _     true ] 4))
+@@@
+
+    => 4
+
+!SLIDE
+
+@@@ clojure
+(let [x true
+      y true
+      z true]
+  (match [x y z]
+     [_     false true ] (mutate-something)
+     [false true  _    ] (do-something-expensive)
+     [_     _     false] (stop-the-program)
+     [_     _     true ] (kill-a-thread)))
+@@@
+
+    => 4
+
+!SLIDE
+
+# 1761 lines.
+
+!SLIDE
+
+# 1761 LINES!
+
+!SLIDE
+
+# FUNCTIONS
+
+!SLIDE
+
+@@@ clojure
+(ns amazing-webapp.core
+  (:use ring.adapter.jetty)
+  (:use ring.middleware.reload)
+  (:use ring.middleware.stacktrace))
+
+(defn handler [req]
+  {:status  200
+   :headers {"Content-Type" "text/html"}
+   :body    (str "<html><body><h1>"
+                 "Hey guys, we're totally in beta."
+                 "</h1></body></html>")})
+
+(defn wrap-teapot-gets [handler]
+  (fn [request]
+    (if (= :get (:request-method req))
+      (app (assoc request :status 418))
+      (app request))))
+
+(def app
+  (-> #'handler
+    (wrap-session)
+    (wrap-flash)
+    (wrap-reload '(amazing-webapp.core))
+    (wrap-stacktrace)
+    (wrap-teapot-gets)))
+
+(defn -main []
+  (run-jetty #'app {:port 8080}))
+@@@
+
+!SLIDE
+
+# DATA STRUCTURES
+
+
+
+!SLIDE
+
 # BIBLIOGRAPHY
 
 !SLIDE
