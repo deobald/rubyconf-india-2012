@@ -154,6 +154,48 @@ here are some notes
 !SLIDE
 
 @@@ clojure
+"hi, I'm a string."
+@@@
+
+!SLIDE
+
+@@@ clojure
+"hi, I'm a string."
+@@@
+
+# string
+
+!SLIDE
+
+@@@ clojure
+:first-name
+@@@
+
+!SLIDE
+
+@@@ clojure
+:first-name
+@@@
+
+# keyword
+
+!SLIDE
+
+@@@ clojure
+keyword
+@@@
+
+!SLIDE
+
+@@@ clojure
+keyword
+@@@
+
+# symbol
+
+!SLIDE
+
+@@@ clojure
 [one two three four]
 @@@
 
@@ -448,9 +490,21 @@ lein repl
 
 !SLIDE
 
-# TODO: ( emacs-demo.clj )
+# ( demo/core.clj )
 
-- parens aren't evil when they're used correctly (oracle db conn string)
+!SLIDE
+
+@@@
+ORA11 =
+ (DESCRIPTION = 
+   (ADDRESS_LIST =
+     (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))
+   )
+ (CONNECT_DATA =
+   (SERVICE_NAME = ORA11)
+ )
+)
+@@@
 
 !SLIDE
 
@@ -817,6 +871,79 @@ SandBox.new.abc(1,2,3) {|*args| p args}
 
 !SLIDE
 
+### (homoiconicity)
+
+!SLIDE
+
+# navigate disappointment?
+
+!SLIDE
+
+![](images/gof.jpg)
+
+!SLIDE
+
+![](images/ruby-logo.png)
+
+!SLIDE
+
+# eliminate disappointment!
+
+!SLIDE
+
+@@@
+loop
+for
+comment
+dosync
+ns
+while
+case
+cond
+and
+or
+import
+let
+fn
+@@@
+
+!NOTES
+
+->
+->>
+when
+when-not
+cond
+lazy-seq
+delay
+and
+or
+defmulti / defmethod
+binding
+declare
+doseq
+import
+doto
+let
+fn
+loop
+for
+comment
+dosync
+ns
+while
+case
+
+!SLIDE
+
+### (homoiconicity)
+
+!SLIDE
+
+![](images/the-unfolding-of-language.jpg)
+
+!SLIDE
+
 # FUNCTIONS
 
 !SLIDE
@@ -856,15 +983,36 @@ SandBox.new.abc(1,2,3) {|*args| p args}
 
 # DATA STRUCTURES
 
+@@@ ruby
+xm.html {                        # <html>
+    xm.head {                    #   <head>
+      xm.title("History")        #     <title>History</title>
+    }                            #   </head>
+    xm.body {                    #   <body>
+      xm.h1("Header")            #     <h1>Header</h1>
+      xm.p("paragraph")          #     <p>paragraph</p>
+    }                            #   </body>                  
+  }                              # </html>
+@@@
 
+@@@ clojure
+(html                            # <html>                     
+  [:head                         #   <head>                   
+    [:title "History"]]          #     <title>History</title> 
+                                 #   </head>
+  [:body                         #   <body>
+    [:h1 "Header"]               #     <h1>Header</h1>
+    [:p "paragraph"]])           #     <p>paragraph</p>
+                                 #   </body>
+                                 # </html>
+@@@                                    
 
 !SLIDE
 
 # BIBLIOGRAPHY
 
-!SLIDE
-
 - http://dreamsongs.net/Files/PatternsOfSoftware.pdf
+- http://www.unfoldingoflanguage.com/
 
 !SLIDE
 
