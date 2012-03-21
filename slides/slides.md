@@ -353,12 +353,12 @@ here are some notes
 # atom
 
 @@@ clojure
-(def person (atom {:name "Steven"}))
+(def me (atom {:name "Steven" :age 30}))
 
-(defn become-ralph [p]
-  (assoc p :name "Ralph"))
+(defn celebrate-birthday [person]
+  (assoc person :age (inc (:age person))))
 
-(swap! person become-ralph)
+(swap! me celebrate-birthday)
 @@@
 
 ![](images/box.jpg)
@@ -368,13 +368,13 @@ here are some notes
 # ref
 
 @@@ clojure
-(def person (ref {:name "Steven"}))
+(def me (atom {:name "Steven" :age 30}))
 
-(defn become-ralph [p]
-  (assoc p :name "Ralph"))
+(defn celebrate-birthday [person]
+  (assoc person :age (inc (:age person))))
 
 (dosync ; start a transaction
-  (alter person become-ralph))
+  (alter me celebrate-birthday))
 @@@
 
 ![](images/database.jpg)
@@ -384,12 +384,12 @@ here are some notes
 # agent
 
 @@@ clojure
-(def person (agent {:name "Steven"}))
+(def me (atom {:name "Steven" :age 30}))
 
-(defn become-ralph [p]
-  (assoc p :name "Ralph"))
+(defn celebrate-birthday [person]
+  (assoc person :age (inc (:age person))))
 
-(send person become-ralph)
+(send me celebrate-birthday)
 @@@
 
 ![](images/agent.png)
@@ -449,6 +449,63 @@ lein repl
 !SLIDE
 
 @@@ ruby
-["beer", "doughnuts", "coffee", "hockey"].map(&upcase)
+["beer", "doughnuts", "coffee", "hockey"].map do |cliche|
+  cliche.upcase
+end
 @@@
 
+!SLIDE
+
+@@@ ruby
+["beer", "doughnuts", "coffee", "hockey"].map(&:upcase)
+@@@
+
+!SLIDE
+
+@@@ ruby
+class Canadian
+  def say(word)
+    "#{word}, eh?"
+  end
+end
+
+harper = Canadian.new
+
+["beer", "doughnuts", "coffee", "hockey"].map do |cliche|
+  harper.say(cliche)
+end
+@@@
+
+!SLIDE
+
+@@@ clojure
+(defprotocol Sayable
+  (say [this s]))
+ 
+(deftype Canadian []
+  Sayable
+  (say [this s] (str s ", eh?")))
+
+(def harper (Canadian.))
+
+(defn say-as-harper [s]
+  (say harper s))
+
+(map say-as-harper ["beer", "doughnuts", "coffee", "hockey"])
+@@@
+
+!SLIDE
+
+- curiosity is joy | repl is joy
+- emacs is a living repl | overtone
+
+- learn clojure in 2 minutes?
+- kernel
+
+- q.w.a.n. / je ne c'est quoi
+
+- navigating disappointment (eliminating disappointment)
+- the unfolding of language
+- church numerals?
+
+- Date/Time vs. joda (clj-time)
