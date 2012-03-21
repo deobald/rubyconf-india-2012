@@ -346,6 +346,10 @@ here are some notes
 
 !SLIDE
 
+# ( time.avi )
+
+!SLIDE
+
 # clojure reference types!
 
 !SLIDE
@@ -441,6 +445,12 @@ chmod +x lein
 lein new playproject
 lein repl
 @@@
+
+!SLIDE
+
+# TODO: ( emacs-demo.clj )
+
+- parens aren't evil when they're used correctly (oracle db conn string)
 
 !SLIDE
 
@@ -616,17 +626,133 @@ end
 
 !SLIDE
 
-![](images/the-timeless-way-of-building.jpg)
-
-### TODO: quote about "feeling"
-
-!SLIDE
-
 # Quality Without a Name
 
 !SLIDE
 
 # Je ne c'est quoi
+
+!SLIDE
+
+![](images/the-timeless-way-of-building.jpg)
+
+### "What _feeling_ do you have about this building?"
+
+!SLIDE
+
+@@@ ruby
+class Logger
+  include Mailbox
+
+  mailslot
+  def log(message)
+    p "Logging on Thread #{Thread.current.object_id} - #{message}"
+  end
+end
+@@@
+
+### What _feeling_ do you have about this code?
+
+!SLIDE
+
+# ( mailbox.rb )
+
+!SLIDE
+
+### What _feeling_ do you have about that code?
+
+!SLIDE
+
+# META-PROGRAMMING
+
+!SLIDE
+
+@@@ ruby
+class Sandbox
+  define_method :xyz do |*args|
+    yield(*args)
+  end
+end
+
+Sandbox.new.xyz(4,5,6) {|*args| p args}
+@@@
+
+    => LocalJumpError: no block given
+
+!SLIDE
+
+@@@ ruby
+class Bandsox
+  define_method :xyz do |*args, &block|
+    block.call(*args)
+  end
+end
+
+SandBox.new.abc(1,2,3) {|*args| p args}
+@@@
+
+    => [1, 2, 3]
+
+!SLIDE
+
+### lambda? block? Proc? Method? Oh my!
+
+!SLIDE
+
+![](images/ruby-grammar.jpg)
+
+!SLIDE
+
+@@@ clojure
+(fn [the-numbers]
+  (reduce + 42 the-numbers))
+@@@
+
+!SLIDE
+
+@@@ clojure
+(def c42-adder 
+  (fn [the-numbers]
+    (reduce + 42 the-numbers))
+@@@
+
+@@@ clojure
+(defn c42-adder [the-numbers]
+  (reduce + 42 the-numbers))
+@@@
+
+!SLIDE
+
+### (homoiconicity)
+
+!SLIDE
+
+@@@ clojure
+(def project {:name "Zig" :path "/home/steven/code/zig"})
+
+(.endsWith (str (first (.listFiles (io/file (:path project))))) ".jpg")
+
+(-> project :path clojure.java.io/file .listFiles first str (.endsWith ".jpg"))
+@@@
+
+!SLIDE
+
+@@@ clojure
+(defmacro ->
+  ([x] x)
+  ([x form] (if (seq? form)
+              (with-meta `(~(first form) ~x ~@(next form)) (meta form))
+              (list form x)))
+  ([x form & more] `(-> (-> ~x ~form) ~@more)))
+@@@
+
+!SLIDE
+
+# BIBLIOGRAPHY
+
+!SLIDE
+
+- http://dreamsongs.net/Files/PatternsOfSoftware.pdf
 
 !SLIDE
 
