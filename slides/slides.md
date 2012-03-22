@@ -28,7 +28,19 @@ here are some notes
 
 !SLIDE
 
+![](images/farmers-only.png)
+
+!SLIDE
+
 ![](images/not-a-cowboy.jpg)
+
+!SLIDE
+
+### http://c2.com/cgi/wiki?<span style="color: red;">SmugLispWeenie</span>
+
+!SLIDE
+
+![](images/smug-lisp-weenie.jpg)
 
 !SLIDE
 
