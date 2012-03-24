@@ -16,11 +16,21 @@ here are some notes
 
 !SLIDE
 
+# Steven Deobald
+
+# .
+# .
+# .
+
+# steven<span style="color: red">@deobald</span>.ca
+
+!SLIDE
+
 ![](images/cowboy-shirt.jpg)
 
 !SLIDE
 
-![](images/gull-lake-map.gif)
+![](images/gull-lake.png)
 
 !SLIDE
 
@@ -101,6 +111,8 @@ here are some notes
 !SLIDE
 
 # do you believe this?
+
+### .
 
 @@@ clojure
 (= closure object)
@@ -324,7 +336,7 @@ keyword
 
 !SLIDE
 
-# 30 years go by.
+# 40 years go by.
 
 !SLIDE
 
@@ -345,6 +357,7 @@ keyword
 * Scheme
 * Common Lisp
 * ACL2
+* Arc
 
 !SLIDE
 
@@ -380,6 +393,10 @@ keyword
 
 !SLIDE
 
+# ( time.avi )
+
+!SLIDE
+
 ![](images/octocat.png)
 
 !SLIDE
@@ -389,10 +406,6 @@ keyword
 !SLIDE
 
 ![](images/facebook-timeline.jpg)
-
-!SLIDE
-
-# ( time.avi )
 
 !SLIDE
 
@@ -463,7 +476,7 @@ keyword
 
 !SLIDE
 
-# also, immutability is good for teeth.
+# if nothing else, immutability promotes healthy teeth.
 
 !SLIDE
 
@@ -471,7 +484,7 @@ keyword
 
 !SLIDE
 
-# did `irb` change the way you program? (hands)
+# did `irb` change the way you program?
 
 !SLIDE
 
@@ -586,12 +599,16 @@ def tax_for(price)
 end
 @@@
 
+### ↓
+
 @@@ clojure
 (defn tax-for [price]
   (let [general-sales-tax (calculate-gst price)
         provincial-sales-tax (calculate-pst price)]
     (+ general-sales-tax provincial-sales-tax)))
 @@@
+
+### ↓
 
 ### ...and then there's haskell.
 
@@ -638,7 +655,7 @@ end
 
 !SLIDE
 
-![](images/science.gif)
+![](images/aperture.svg)
 
 !SLIDE
 
@@ -790,9 +807,20 @@ SandBox.new.abc(1,2,3) {|*args| p args}
 @@@ clojure
 (def project {:name "Zig" :path "/home/steven/code/zig"})
 
-(.endsWith (str (first (.listFiles (clojure.java.io/file (:path project))))) ".jpg")
+(.endsWith 
+  (str 
+    (first 
+      (.listFiles 
+        (clojure.java.io/file 
+          (:path project))))) 
+  ".jpg")
 
-(-> project :path clojure.java.io/file .listFiles first str (.endsWith ".jpg"))
+(-> project :path 
+            clojure.java.io/file 
+            .listFiles 
+            first 
+            str 
+            (.endsWith ".jpg"))
 @@@
 
 !SLIDE
@@ -990,27 +1018,27 @@ case
 # DATA STRUCTURES
 
 @@@ ruby
-xm.html {                        # <html>
-    xm.head {                    #   <head>
-      xm.title("History")        #     <title>History</title>
-    }                            #   </head>
-    xm.body {                    #   <body>
-      xm.h1("Header")            #     <h1>Header</h1>
-      xm.p("paragraph")          #     <p>paragraph</p>
-    }                            #   </body>                  
-  }                              # </html>
+xm.html {                   # <html>
+    xm.head {               #   <head>
+      xm.title("History")   #     <title>History</title>
+    }                       #   </head>
+    xm.body {               #   <body>
+      xm.h1("Header")       #     <h1>Header</h1>
+      xm.p("paragraph")     #     <p>paragraph</p>
+    }                       #   </body>                  
+  }                         # </html>
 @@@
 
 @@@ clojure
-(html                            ; <html>
-  [:head                         ;   <head>
-    [:title "History"]]          ;     <title>History</title> 
-                                 ;   </head>
-  [:body                         ;   <body>
-    [:h1 "Header"]               ;     <h1>Header</h1>
-    [:p "paragraph"]])           ;     <p>paragraph</p>
-                                 ;   </body>
-                                 ; </html>
+(html                       ; <html>
+  [:head                    ;   <head>
+    [:title "History"]]     ;     <title>History</title> 
+                            ;   </head>
+  [:body                    ;   <body>
+    [:h1 "Header"]          ;     <h1>Header</h1>
+    [:p "paragraph"]])      ;     <p>paragraph</p>
+                            ;   </body>
+                            ; </html>
 @@@
 
 !SLIDE
@@ -1032,7 +1060,10 @@ xm.html {                        # <html>
 - labrepl: https://github.com/relevance/labrepl
 - joy of clojure: http://joyofclojure.com/the-book/
 
+### ...
+
 ### BIBLIOGRAPHY
 
 - http://dreamsongs.net/Files/PatternsOfSoftware.pdf
+- http://en.wikipedia.org/wiki/The_Timeless_Way_of_Building
 - http://www.unfoldingoflanguage.com/

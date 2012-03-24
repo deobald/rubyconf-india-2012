@@ -46,7 +46,7 @@ end
 def fix_codemirror_css
   fontsize = "font-size: 1rem"
   css = File.read(keydown_css)
-  css.gsub!(fontsize, "font-size: 1.5rem")
+  css.gsub!(fontsize, "font-size: 1.8rem")
   File.open(keydown_css, "w") { |f| f.write(css) }
 end
 
